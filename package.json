@@ -1,10 +1,10 @@
 {
   "name": "pushstate-server",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Static file server that works with HTML5 Pushstate.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "test": "node test/test.js"
   },
   "repository": {
     "type": "git",
