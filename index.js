@@ -1,6 +1,5 @@
 var connect = require('connect');
 var modRewrite = require('connect-modrewrite');
-var _ = require('lodash');
 var app = connect();
 
 //
