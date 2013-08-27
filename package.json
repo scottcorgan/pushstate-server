@@ -1,0 +1,23 @@
+{
+  "name": "pushstate-server",
+  "version": "0.0.1",
+  "description": "Static file server that works with HTML5 Pushstate.",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scottcorgan/pushstate-server.git"
+  },
+  "keywords": [
+    "pushstate",
+    "html5",
+    "static",
+    "server"
+  ],
+  "author": "Scott Corgan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scottcorgan/pushstate-server/issues"
+  }
+}
