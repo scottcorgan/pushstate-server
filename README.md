@@ -41,13 +41,15 @@ server.start({
 ##### options
 
 * `port` 
-* * set the port that the server should open
-* * uses ` process.env.PORT ` if not specified, and defaults to port ` 9000 ` if none is available
-* * optionally use `server.port()`
-* `directory` - 
-* * the path to the directory where the static assets will be served
-* * defaults to ` public `
-* * optionally use `server.directory()`
+  * set the port that the server should open
+  * uses ` process.env.PORT ` if not specified, and defaults to port ` 9000 ` if none is available
+  * * optionally use `server.port()`
+* `directory`
+  * the path to the directory where the static assets will be served
+  * defaults to ` public `
+  * optionally use `server.directory()`
+
+## Run Tests
 
 ```
 npm install
