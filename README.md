@@ -24,37 +24,32 @@ npm install pushstate-server --save
 
 ## Usage
 
-```javascript
-
+```js
 var server = require('pushstate-server');
 
-// Optional
-server.setPort(3000);
-server.setDirectory('./public');
-
-// Required
-server.start();
-
+server.start({
+  port: 3000,
+  directory: './public'
+});
 ```
 
 ## API
 
-#### start()
+#### start(options)
 * start the pushstate static file server
 
-#### setPort(port)
-* set the port that the server should open
-* uses ` process.env.PORT ` if not specified, and defaults to port ` 9000 ` if none is available
+##### options
 
-#### setDirectory(dir)
-* the path to the directory where the static assets will be served from
-* defaults to ` public `
-
-
-## Test
-
-*(does nothing at the moment)*
+* `port` 
+* * set the port that the server should open
+* * uses ` process.env.PORT ` if not specified, and defaults to port ` 9000 ` if none is available
+* * optionally use `server.port()`
+* `directory` - 
+* * the path to the directory where the static assets will be served
+* * defaults to ` public `
+* * optionally use `server.directory()`
 
 ```
+npm install
 npm test
 ```
