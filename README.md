@@ -33,6 +33,25 @@ server.start({
 });
 ```
 
+## Adding Middleware
+
+It is possible to add middleware. For example, to add an instance of [Canned](https://github.com/sideshowcoder/canned), would look as follows:
+
+```js
+var server = require('pushstate-server');
+
+var canned = require('canned'),
+    http = require('http');
+
+var can = canned('/api', {});
+
+server.start({
+  port: 5000,
+  directory: __dirname + '/static',
+  apps: [can]
+});
+```
+
 ## API
 
 #### start(options)
