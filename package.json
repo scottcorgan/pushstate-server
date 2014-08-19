@@ -1,6 +1,6 @@
 {
   "name": "pushstate-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Static file server that works with HTML5 Pushstate.",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "url": "https://github.com/scottcorgan/pushstate-server/issues"
   },
   "dependencies": {
-    "connect": "~2.8.5",
+    "connect": "^2.21.0",
     "connect-modrewrite": "~0.5.4"
   },
   "devDependencies": {
