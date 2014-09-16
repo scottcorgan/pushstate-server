@@ -1,5 +1,7 @@
 var connect = require('connect');
 var modRewrite = require('connect-modrewrite');
+var serveStatic = require('serve-static');
+var compression = require('compression');
 var app = connect();
 
 //
@@ -22,10 +24,10 @@ module.exports = {
     var directory = options.directory || this._directory;
 
     app.use(modRewrite([
-      '!\\.html|\\.js|\\.css|\\.png|\\.svg|\\.eot|\\.ttf|\\.woff|\\.appcache /index.html [L]'
+      '!\\.html|\\.js|\\.css|\\.png|\\.svg|\\.eot|\\.ttf|\\.woff|\\.appcache|\\.jpg|\\.jpeg /index.html [L]'
     ]));
-    app.use(connect.compress());
-    app.use(connect.static(directory));
+    app.use(compression());
+    app.use(serveStatic(directory));
 
     app.listen(port, function () {
       console.log('\nPushstate server started on port ' + port + '\n');

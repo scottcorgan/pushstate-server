@@ -22,8 +22,10 @@
     "url": "https://github.com/scottcorgan/pushstate-server/issues"
   },
   "dependencies": {
+    "compression": "^1.1.0",
     "connect": "^3.2.0",
-    "connect-modrewrite": "~0.7.9"
+    "connect-modrewrite": "~0.7.9",
+    "serve-static": "^1.6.2"
   },
   "devDependencies": {
     "tape": "~1.0.4"
