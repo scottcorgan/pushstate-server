@@ -14,6 +14,8 @@ Defaults all routes to ` index.html ` in the directory set by ` setDirectory() `
 * ttf
 * woff
 * appcache
+* jpg
+* jpeg
 
 For example, the route ` /some/pushstate/route ` will return the ` index.html ` file. But, ` /some/static/path/logo.png ` will return the ` logo.png ` static file.
 
@@ -49,10 +51,3 @@ server.start({
   * the path to the directory where the static assets will be served
   * defaults to ` public `
   * optionally use `server.directory()`
-
-## Run Tests
-
-```
-npm install
-npm test
-```
