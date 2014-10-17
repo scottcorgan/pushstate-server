@@ -36,6 +36,16 @@ server.start({
 });
 ```
 
+## Global Install
+
+```
+npm install -g pushstate-server
+```
+
+```
+usage: pushstate-server [directory] [port]
+```
+
 ## API
 
 #### start(options)

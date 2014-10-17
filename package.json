@@ -29,5 +29,8 @@
   },
   "devDependencies": {
     "tape": "~1.0.4"
+  },
+  "bin": {
+    "pushstate-server": "./bin/pushstate-server"
   }
 }
