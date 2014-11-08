@@ -36,6 +36,17 @@ server.start({
 });
 ```
 
+or for multiple directories
+
+```js
+var server = require('pushstate-server');
+
+server.start({
+  port: 4200,
+  directories: ['./public', './bower_components']
+});
+```
+
 ## API
 
 #### start(options)
