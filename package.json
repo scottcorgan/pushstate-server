@@ -1,6 +1,6 @@
 {
   "name": "pushstate-server",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Static file server that works with HTML5 Pushstate.",
   "main": "index.js",
   "scripts": {
@@ -29,5 +29,8 @@
   },
   "devDependencies": {
     "tape": "~1.0.4"
+  },
+  "bin": {
+    "pushstate-server": "./bin/pushstate-server"
   }
 }

@@ -1,5 +1,4 @@
-pushstate-server
-================
+# pushstate-server
 
 Static file server that works with HTML5 Pushstate.
 
@@ -46,6 +45,15 @@ server.start({
   port: 4200,
   directories: ['./public', './bower_components']
 });
+
+## Global Install
+
+```
+npm install -g pushstate-server
+```
+
+```
+usage: pushstate-server [directory] [port]
 ```
 
 ## API
