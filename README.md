@@ -45,6 +45,7 @@ server.start({
   port: 4200,
   directories: ['./public', './bower_components']
 });
+```
 
 ## Global Install
 
