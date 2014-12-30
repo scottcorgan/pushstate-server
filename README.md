@@ -6,6 +6,8 @@ Defaults all routes to ` index.html ` in the directory set by ` setDirectory() `
 
 * html
 * js
+* json
+* csv
 * css
 * png
 * svg
@@ -45,6 +47,7 @@ server.start({
   port: 4200,
   directories: ['./public', './bower_components']
 });
+```
 
 ## Global Install
 
