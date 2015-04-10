@@ -24,7 +24,7 @@ module.exports = {
     var directories = options.directories || [directory];
 
     app.use(modRewrite([
-      '!\\.html|\\.js|\\.json|\\.csv|\\.css|\\.png|\\.svg|\\.eot|\\.ttf|\\.woff|\\.appcache|\\.jpg|\\.jpeg|\\.gif /index.html [L]'
+      '!\\.html|\\.js|\\.json|\\.ico|\\.csv|\\.css|\\.png|\\.svg|\\.eot|\\.ttf|\\.woff|\\.appcache|\\.jpg|\\.jpeg|\\.gif /index.html [L]'
     ]));
     app.use(compression());
 
