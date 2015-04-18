@@ -19,7 +19,7 @@ module.exports = {
   start: function (options) {
     options = options || {};
 
-    var port = process.env.PORT || options.port || this._port;
+    var port = options.port || process.env.PORT || this._port;
     var directory = options.directory || this._directory;
     var directories = options.directories || [directory];
 
