@@ -5,6 +5,7 @@ var compression = require('compression');
 var app = connect();
 
 module.exports = {
+  app: app,
   _port: 9000,
   _directory: 'public',
 
