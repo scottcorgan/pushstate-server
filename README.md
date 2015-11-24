@@ -9,6 +9,7 @@ Defaults all routes to ` index.html ` in the directory set by ` setDirectory() `
 * json
 * csv
 * css
+* less
 * png
 * svg
 * eot
