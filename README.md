@@ -36,7 +36,8 @@ var server = require('pushstate-server');
 
 server.start({
   port: 3000,
-  directory: './public'
+  directory: './public',
+  file: '/index.html'
 });
 ```
 
@@ -58,7 +59,7 @@ npm install -g pushstate-server
 ```
 
 ```
-usage: pushstate-server [directory] [port]
+usage: pushstate-server [directory] [port] [file]
 ```
 
 ## API
@@ -76,3 +77,7 @@ usage: pushstate-server [directory] [port]
   * the path to the directory where the static assets will be served
   * defaults to ` public `
   * optionally use `server.directory()`
+* `file`
+  * the file route to
+  * defaults to ` /index.html `
+  * optionally use `server.file()`
