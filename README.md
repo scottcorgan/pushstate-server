@@ -52,6 +52,20 @@ server.start({
 });
 ```
 
+You can also add extra modRewrite rules:
+
+```js
+var server = require('pushstate-server');
+
+server.start({
+  extra_rules: ['^/login$ /login.html', '^/about$ /about.html']
+});
+```
+
+Then any requests to `/login` go to login.html, and requests to `/about`
+go to about.html. See https://github.com/tinganho/connect-modrewrite for
+more information about modRewrite.
+
 ## Global Install
 
 ```
@@ -59,7 +73,7 @@ npm install -g pushstate-server
 ```
 
 ```
-usage: pushstate-server [directory] [port] [file]
+usage: pushstate-server [directory] [port] [file] [extra_rules]
 ```
 
 ## API
@@ -81,3 +95,7 @@ usage: pushstate-server [directory] [port] [file]
   * the file route to
   * defaults to ` /index.html `
   * optionally use `server.file()`
+* `extra_rules`
+  * optional modRewrite rules to run before the default rules are run
+  * defaults to an empty array
+  * optionally use `server.extra_rules()`

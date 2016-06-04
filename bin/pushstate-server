@@ -3,12 +3,13 @@
 var server = require('../index');
 
 if (process.argv[2] == '-h' || process.argv[2] == '--help') {
-  console.log('\nusage: pushstate-server [directory] [port] [file]\n');
+  console.log('\nusage: pushstate-server [directory] [port] [file] [extra_rules (optional)]\n');
   process.exit(0);
 }
 
 server.start({
   directory: process.argv[2],
   port: process.argv[3],
-  file: process.argv[4]
+  file: process.argv[4],
+  extra_rules: process.argv.slice(5)
 });
