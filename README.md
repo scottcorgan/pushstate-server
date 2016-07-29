@@ -15,11 +15,14 @@ Defaults all routes to ` index.html ` in the directory set by ` setDirectory() `
 * eot
 * ttf
 * woff
+* woff2
 * appcache
 * jpg
 * jpeg
 * gif
 * ico
+* mp4
+* webm
 
 For example, the route ` /some/pushstate/route ` will return the ` index.html ` file. But, ` /some/static/path/logo.png ` will return the ` logo.png ` static file.
 
