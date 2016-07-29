@@ -31,7 +31,9 @@ module.exports = {
     var file = options.file || this._file;
 
     app.use(modRewrite([
-      '!\\.html|\\.js|\\.json|\\.ico|\\.csv|\\.css|\\.less|\\.png|\\.svg|\\.eot|\\.ttf|\\.woff|\\.appcache|\\.jpg|\\.jpeg|\\.gif ' + file + ' [L]'
+      '!\\.html|\\.js|\\.json|\\.ico|\\.csv|\\.css|\\.less|\\.png|\\.svg' +
+      '|\\.eot|\\.ttf|\\.woff|\\.woff2|\\.appcache|\\.jpg|\\.jpeg|\\.gif' +
+      '|\\.mp4|\\.webm ' + file + ' [L]'
     ]));
     app.use(compression());
 
