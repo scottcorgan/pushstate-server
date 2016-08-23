@@ -21,6 +21,7 @@ Defaults all routes to ` index.html ` in the directory set by ` setDirectory() `
 * jpg
 * jpeg
 * gif
+* webp
 * ico
 * mp4
 * webm
