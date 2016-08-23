@@ -13,6 +13,7 @@ Defaults all routes to ` index.html ` in the directory set by ` setDirectory() `
 * png
 * svg
 * eot
+* webp
 * otf
 * ttf
 * woff
