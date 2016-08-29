@@ -24,11 +24,11 @@
   "dependencies": {
     "compression": "^1.1.0",
     "connect": "^3.2.0",
-    "connect-modrewrite": "~0.7.9",
+    "connect-modrewrite": "~0.9.0",
     "serve-static": "^1.6.2"
   },
   "devDependencies": {
-    "tape": "~1.0.4"
+    "tape": "~4.6.0"
   },
   "bin": {
     "pushstate-server": "./bin/pushstate-server"
