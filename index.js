@@ -41,7 +41,7 @@ module.exports = {
       app.use(serveStatic(directory));
     });
 
-    app.listen(port, function () {
+    return app.listen(port, function () {
       console.log('\nPushstate server started on port ' + port + '\n');
     });
   }
