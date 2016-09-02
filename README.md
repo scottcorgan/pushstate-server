@@ -4,27 +4,28 @@ Static file server that works with HTML5 Pushstate.
 
 Defaults all routes to ` index.html ` in the directory set by ` setDirectory() `. Treats the following file extensions as static files (non routeables):
 
+* appcache
+* css
+* csv
+* eot
+* gif
 * html
+* ico
+* jpeg
+* jpg
 * js
 * json
-* csv
-* css
 * less
-* png
-* svg
-* eot
+* mp4
 * otf
+* png
+* txt
+* svg
 * ttf
+* webm
+* webp
 * woff
 * woff2
-* appcache
-* jpg
-* jpeg
-* gif
-* webp
-* ico
-* mp4
-* webm
 
 For example, the route ` /some/pushstate/route ` will return the ` index.html ` file. But, ` /some/static/path/logo.png ` will return the ` logo.png ` static file.
 
