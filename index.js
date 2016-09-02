@@ -33,7 +33,7 @@ module.exports = {
     app.use(modRewrite([
       '!\\.html|\\.js|\\.json|\\.ico|\\.csv|\\.css|\\.less|\\.png|\\.svg' +
       '|\\.eot|\\.otf|\\.ttf|\\.woff|\\.woff2|\\.appcache|\\.jpg|\\.jpeg' +
-      '|\\.gif|\\.webp|\\.mp4|\\.txt|\\.webm ' + file + ' [L]'
+      '|\\.gif|\\.webp|\\.mp4|\\.txt|\\.map|\\.webm ' + file + ' [L]'
     ]));
     app.use(compression());
 
