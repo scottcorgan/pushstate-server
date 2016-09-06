@@ -1,11 +1,10 @@
 var connect = require('connect');
+var path = require('path');
 var modRewrite = require('connect-modrewrite');
 var serveStatic = require('serve-static');
 var serveStaticFile = require('connect-static-file');
 var compression = require('compression');
 var app = connect();
-var parseUrl = require('parseurl')
-var path = require('path');
 
 module.exports = {
   app: app,
