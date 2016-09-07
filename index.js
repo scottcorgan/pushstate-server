@@ -1,8 +1,8 @@
-var connect = require('connect');
-var modRewrite = require('connect-modrewrite');
-var serveStatic = require('serve-static');
-var compression = require('compression');
-var app = connect();
+let connect = require('connect')
+let modRewrite = require('connect-modrewrite')
+let serveStatic = require('serve-static')
+let compression = require('compression')
+let app = connect()
 
 module.exports = {
   app: app,
@@ -11,38 +11,39 @@ module.exports = {
   _file: '/index.html',
 
   port: function (port) {
-    this._port = port;
+    this._port = port
   },
 
   directory: function (dir) {
-    this._directory = dir;
+    this._directory = dir
   },
 
   file: function (file) {
-    this._file = dir;
+    this._file = dir
   },
 
-  start: function (options) {
-    options = options || {};
+  start: function (options, _onStarted) {
+    options = options || {}
 
-    var port = options.port || process.env.PORT || this._port;
-    var directory = options.directory || this._directory;
-    var directories = options.directories || [directory];
-    var file = options.file || this._file;
+    let port = options.port || process.env.PORT || this._port
+    let directory = options.directory || this._directory
+    let directories = options.directories || [directory]
+    let file = options.file || this._file
+    let onStarted = _onStarted || function () {}
 
     app.use(modRewrite([
       '!\\.html|\\.js|\\.json|\\.ico|\\.csv|\\.css|\\.less|\\.png|\\.svg' +
       '|\\.eot|\\.otf|\\.ttf|\\.woff|\\.woff2|\\.appcache|\\.jpg|\\.jpeg' +
       '|\\.gif|\\.webp|\\.mp4|\\.txt|\\.map|\\.webm ' + file + ' [L]'
-    ]));
-    app.use(compression());
+    ]))
+    app.use(compression())
 
     directories.forEach(function(directory) {
-      app.use(serveStatic(directory));
-    });
+      app.use(serveStatic(directory))
+    })
 
-    return app.listen(port, function () {
-      console.log('\nPushstate server started on port ' + port + '\n');
-    });
+    return app.listen(port, function (err) {
+      onStarted(err)
+    })
   }
-};
+}
