@@ -1,8 +1,9 @@
-let connect = require('connect')
-let modRewrite = require('connect-modrewrite')
-let serveStatic = require('serve-static')
-let compression = require('compression')
-let app = connect()
+var connect = require('connect')
+var path = require('path')
+var serveStatic = require('serve-static')
+var serveStaticFile = require('connect-static-file')
+var compression = require('compression')
+var app = connect()
 
 module.exports = {
   app: app,
@@ -31,16 +32,15 @@ module.exports = {
     let file = options.file || this._file
     let onStarted = _onStarted || function () {}
 
-    app.use(modRewrite([
-      '!\\.html|\\.js|\\.json|\\.ico|\\.csv|\\.css|\\.less|\\.png|\\.svg' +
-      '|\\.eot|\\.otf|\\.ttf|\\.woff|\\.woff2|\\.appcache|\\.jpg|\\.jpeg' +
-      '|\\.gif|\\.webp|\\.mp4|\\.txt|\\.map|\\.webm ' + file + ' [L]'
-    ]))
     app.use(compression())
 
+    // First, check the file system
     directories.forEach(function(directory) {
-      app.use(serveStatic(directory))
+      app.use(serveStatic(directory, { extensions: ['html'] }))
     })
+
+    // Then, serve the fallback file
+    app.use(serveStaticFile(path.join(directory, file)))
 
     return app.listen(port, function (err) {
       onStarted(err)
