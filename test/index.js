@@ -3,6 +3,73 @@ let test = require('tape')
 let got = require('got')
 let app = require('../index')
 
+test('server with port', t => {
+
+    let server
+
+    server = app.start({
+        directory: path.join(__dirname, 'fixtures'),
+        port: 4321
+        }, err => {
+
+        if (err) return server.close(() => t.end(err))
+
+        got('localhost:4321')
+            .then(res => {
+
+                t.equal(res.statusCode, 200, 'root status code')
+                server.close(t.end.bind(t))
+            })
+            .catch(err => server.close(() => t.end(err)))
+    })
+})
+
+test('server with multiple directories', t => {
+
+    let server
+
+    server = app.start({
+        directories: [
+            path.join(__dirname, 'fixtures'),
+            path.join(__dirname, 'test-directory')
+        ],
+        }, err => {
+
+        if (err) return server.close(() => t.end(err))
+
+        got('localhost:9000/test-json.json')
+            .then(res => {
+
+                t.equal(res.statusCode, 200, 'response status code')
+                server.close(t.end.bind(t))
+            })
+            .catch(err => server.close(() => t.end(err)))
+    })
+})
+
+test.skip('server with custom index file', t => {
+
+    let server
+
+    server = app.start({
+        directory: path.join(__dirname, 'fixtures'),
+        file: 'cat.js',
+        port: 8000
+        }, err => {
+
+        if (err) return server.close(() => t.end(err))
+
+        got('localhost:8000')
+            .then(res => {
+
+                t.equal(res.statusCode, 200, 'root status code')
+                t.equal(res.body, "// cat.js", "body")
+                server.close(t.end.bind(t))
+            })
+            .catch(err => server.close(() => t.end(err)))
+    })
+})
+
 testWithServer("serves index.html", (t, done) => {
 
     let base = got('localhost:9000')
