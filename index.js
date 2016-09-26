@@ -31,7 +31,6 @@ exports.start = function (options, _onStarted) {
   app.use(serveStaticFile(path.join(directory, file)))
 
   return app.listen(port, function (err) {
-    console.log(`Listening on port ${port} (http://localhost:${port})`)
-    onStarted(err)
+    onStarted(err, port)
   })
 }
