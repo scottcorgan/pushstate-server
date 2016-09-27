@@ -11,4 +11,6 @@ server.start({
   directory: process.argv[2],
   port: process.argv[3],
   file: process.argv[4]
+}, function(err, port) {
+    console.log(`Listening on port ${port} (http://localhost:${port})`);
 });

@@ -31,6 +31,6 @@ exports.start = function (options, _onStarted) {
   app.use(serveStaticFile(path.join(directory, file)))
 
   return app.listen(port, function (err) {
-    onStarted(err)
+    onStarted(err, port)
   })
 }
