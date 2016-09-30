@@ -30,7 +30,7 @@
   "devDependencies": {
     "@tap-format/spec": "0.2.0",
     "got": "6.3.0",
-    "tape": "4.6.0"
+    "tape": "4.6.2"
   },
   "bin": {
     "pushstate-server": "./bin/pushstate-server"
