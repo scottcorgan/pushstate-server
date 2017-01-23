@@ -25,7 +25,7 @@
     "compression": "^1.1.0",
     "connect": "^3.2.0",
     "connect-static-file": "^1.1.2",
-    "serve-static": "^1.6.2"
+    "serve-static": "^1.11.2"
   },
   "devDependencies": {
     "@tap-format/spec": "0.2.0",
