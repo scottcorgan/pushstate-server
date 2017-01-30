@@ -32,6 +32,17 @@ server.start({
 });
 ```
 
+or bind to a particular host
+
+```js
+server.start({
+  port: 4200,
+  host: '192.99.100.01',
+  directories: ['./public', './bower_components']
+});
+```
+
+
 ## Global Install
 
 ```

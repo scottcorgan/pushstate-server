@@ -47,6 +47,27 @@ test('server with multiple directories', t => {
     })
 })
 
+test('server with a custom host', t => {
+
+    let server
+    const host = '0.0.0.0';
+
+    server = app.start({
+        host: host
+        }, err => {
+
+        if (err) return server.close(() => t.end(err))
+
+        got(host + ':9000/test-json.json')
+            .then(res => {
+
+                t.equal(res.statusCode, 200, 'response status code')
+                server.close(t.end.bind(t))
+            })
+            .catch(err => server.close(() => t.end(err)))
+    })
+})
+
 test.skip('server with custom index file', t => {
 
     let server
