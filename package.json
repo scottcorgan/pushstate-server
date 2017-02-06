@@ -1,6 +1,6 @@
 {
   "name": "pushstate-server",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Static file server that works with HTML5 Pushstate.",
   "main": "index.js",
   "scripts": {
@@ -22,11 +22,11 @@
     "url": "https://github.com/scottcorgan/pushstate-server/issues"
   },
   "dependencies": {
-    "compression": "^1.1.0",
-    "connect": "^3.2.0",
-    "connect-static-file": "^1.1.2",
-    "log4js": "^1.1.0",
-    "serve-static": "^1.6.2"
+    "compression": "1.6.2",
+    "connect": "3.5.0",
+    "connect-static-file": "1.1.2",
+    "log4js": "1.1.0",
+    "serve-static": "1.11.2"
   },
   "devDependencies": {
     "@tap-format/spec": "0.2.0",
