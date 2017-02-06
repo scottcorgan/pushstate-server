@@ -12,10 +12,7 @@ const PORT = 9000
 const DIRECTORY = 'public'
 const FILE = 'index.html'
 const HOST = '0.0.0.0'
-const LOGGEROPTIONS = {
-  level: 'ALL',
-  appenders: [ { type: 'console' } ]
-}
+const LOGGEROPTIONS = {}
 
 exports.start = function (options, _onStarted) {
   options = options || {}
@@ -32,9 +29,11 @@ exports.start = function (options, _onStarted) {
 
   // configure logger
   log4js.configure(loggerOptions)
-  const logger = log4js.getLogger()
-  logger.setLevel(loggerOptions.level)
-  app.use(log4js.connectLogger(logger, { level: log4js.levels[loggerOptions.level] }))
+  if (loggerOptions.level) {
+    const logger = log4js.getLogger()
+    logger.setLevel(loggerOptions.level)
+    app.use(log4js.connectLogger(logger, { level: log4js.levels[loggerOptions.level] }))
+  }
 
   // check the file system
   directories.forEach(function(directory) {

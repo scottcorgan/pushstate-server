@@ -42,7 +42,7 @@ server.start({
 });
 ```
 
-You can configure the logging options as well via `logger`
+You can configure logging options as well via `logger`
 
 ```js
 server.start({
@@ -55,7 +55,7 @@ server.start({
 });
 ```
 
-We use the (https://github.com/nomiddlename/log4js-node/wiki/Connect-Logger)[log4js] connect logger. Learn more about the available options from their project.
+We use the (https://github.com/nomiddlename/log4js-node/wiki/Connect-Logger)[log4js] connect logger. Learn more about the available options from their project.  Be sure to set `options.logger.level` to enable the logger.
 
 
 ## Global Install
