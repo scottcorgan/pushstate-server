@@ -25,6 +25,7 @@
     "compression": "1.6.2",
     "connect": "3.5.0",
     "connect-static-file": "1.1.2",
+    "log4js": "1.1.0",
     "serve-static": "1.11.2"
   },
   "devDependencies": {
