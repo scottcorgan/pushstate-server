@@ -20,9 +20,16 @@ exports.start = function (options, _onStarted) {
   let directories = options.directories || [directory]
   let file = options.file || FILE
   let host = options.host || HOST
+  let middleware = options.middleware || []
   let onStarted = _onStarted || function () {}
 
   app.use(compression())
+
+  // Add custom middleware
+  middleware.forEach(function(item) {
+    if (!Array.isArray(item)) item = [item]
+    app.use.apply(app, item)
+  })
 
   // First, check the file system
   directories.forEach(function(directory) {
