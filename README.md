@@ -42,6 +42,17 @@ server.start({
 });
 ```
 
+or add some middleware
+
+```js
+server.start({
+  middleware: [
+    someMiddleware,
+    ['/route', someRouteSpecificMiddleware ]
+  ]
+});
+```
+
 
 ## Global Install
 
@@ -69,3 +80,6 @@ usage: pushstate-server [directory] [port]
 * `file`
   * Custom file to serve
   * defaults to `index.html`
+* `middleware`
+  * array of middleware to use; each array element can be a function or an array of arguments for [`connect`'s `use` method](https://github.com/senchalabs/connect#use-middleware)
+  * defaults to `[]`
