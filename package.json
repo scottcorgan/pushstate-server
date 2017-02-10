@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@tap-format/spec": "0.2.0",
-    "got": "6.3.0",
+    "got": "6.6.0",
     "tape": "4.6.0"
   },
   "bin": {
