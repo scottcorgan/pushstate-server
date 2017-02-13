@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "compression": "1.6.2",
-    "connect": "3.5.0",
+    "connect": "3.5.1",
     "connect-static-file": "1.1.2",
     "serve-static": "1.11.2"
   },
