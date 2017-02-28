@@ -1,10 +1,16 @@
 let path = require('path')
 let test = require('tape')
 let got = require('got')
-let app = require('../index')
+
+let createApp = () => {
+  let module = '../index'
+  delete require.cache[require.resolve(module)]
+  return require(module)
+}
 
 test('server with port', t => {
 
+    let app = createApp()
     let server
 
     server = app.start({
@@ -26,6 +32,7 @@ test('server with port', t => {
 
 test('server with multiple directories', t => {
 
+    let app = createApp()
     let server
 
     server = app.start({
@@ -49,10 +56,12 @@ test('server with multiple directories', t => {
 
 test('server with a custom host', t => {
 
+    let app = createApp()
     let server
     const host = '0.0.0.0';
 
     server = app.start({
+        directory: path.join(__dirname, 'fixtures'),
         host: host
         }, err => {
 
@@ -68,8 +77,37 @@ test('server with a custom host', t => {
     })
 })
 
+test('server with middleware', t => {
+
+    let app = createApp()
+    let server
+
+    server = app.start({
+        directory: path.join(__dirname, 'fixtures'),
+        middleware: [
+            (req, res, next) => {
+                res.setHeader('server', 'pushstate')
+                next()
+            }
+        ]
+        }, err => {
+
+        if (err) return server.close(() => t.end(err))
+
+        got('localhost:9000')
+            .then(res => {
+
+                t.equal(res.statusCode, 200, 'middleware status code')
+                t.equal(res.headers.server, 'pushstate', 'middleware response header')
+                server.close(t.end.bind(t))
+            })
+            .catch(err => server.close(() => t.end(err)))
+    })
+})
+
 test.skip('server with custom index file', t => {
 
+    let app = createApp()
     let server
 
     server = app.start({
@@ -138,6 +176,7 @@ testWithServer("serves files", (t, done) => {
 function testWithServer (name, done) {
 
     test(name, t => {
+        let app = createApp()
         let server
 
         server = app.start({directory: path.join(__dirname, 'fixtures')}, err => {
