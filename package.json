@@ -4,8 +4,9 @@
   "description": "Static file server that works with HTML5 Pushstate.",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/index.js | tap-format-spec",
-    "format": "prettier \"index.js test/index.js\""
+    "test": "npm run format && npm run test-runner",
+    "test-runner": "tape test/index.js | tap-format-spec",
+    "format": "prettier --write \"index.js\" \"test/index.js\""
   },
   "repository": {
     "type": "git",
