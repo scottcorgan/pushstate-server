@@ -1,11 +1,11 @@
 'use strict'
 
-var connect = require('connect')
-var path = require('path')
-var serveStatic = require('serve-static')
-var serveStaticFile = require('connect-static-file')
-var compression = require('compression')
-var app = connect()
+const connect = require('connect')
+const path = require('path')
+const serveStatic = require('serve-static')
+const serveStaticFile = require('connect-static-file')
+const compression = require('compression')
+const app = connect()
 
 const PORT = 9000
 const DIRECTORY = 'public'
@@ -25,14 +25,14 @@ exports.start = function (options, _onStarted) {
   app.use(compression())
 
   // First, check the file system
-  directories.forEach(function(directory) {
-    app.use(serveStatic(directory, { extensions: ['html'] }))
-  })
+  directories.forEach(directory =>
+    app.use(serveStatic(directory, { extensions: ['html'] })))
 
   // Then, serve the fallback file
   app.use(serveStaticFile(path.join(directory, file)))
 
-  return app.listen(port, host, function (err) {
-    onStarted(err, port)
-  })
+  const server = app.listen(port, host, err =>
+    onStarted(err, server.address()))
+
+  return server
 }
