@@ -1,10 +1,12 @@
 {
   "name": "pushstate-server",
-  "version": "2.2.2",
+  "version": "3.0.0",
   "description": "Static file server that works with HTML5 Pushstate.",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/index.js | tap-format-spec"
+    "test": "npm run format && npm run test-runner",
+    "test-runner": "tape test/index.js | tap-format-spec",
+    "format": "prettier --write \"index.js\" \"test/index.js\""
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,7 @@
   "devDependencies": {
     "@tap-format/spec": "0.2.0",
     "got": "6.7.1",
+    "prettier": "0.20.0",
     "tape": "4.6.3"
   },
   "bin": {

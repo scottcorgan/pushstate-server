@@ -55,7 +55,7 @@ usage: pushstate-server [directory] [port]
 
 ## API
 
-#### start(options)
+#### start(options[, callback])
 * start the pushstate static file server
 
 ##### options
