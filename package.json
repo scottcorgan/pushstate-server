@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@tap-format/spec": "0.2.0",
-    "got": "6.7.1",
+    "got": "7.0.0",
     "prettier": "1.1.0",
     "tape": "4.6.3"
   },
