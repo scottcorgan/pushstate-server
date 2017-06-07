@@ -1,5 +1,7 @@
 # pushstate-server
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/scottcorgan/pushstate-server.svg)](https://greenkeeper.io/)
+
 Static file server that works with HTML5 Pushstate.
 
 For example, the route ` /some/pushstate/route ` will return the ` index.html ` file. But, ` /some/static/path/logo.png ` will return the ` logo.png ` static file.
