@@ -26,13 +26,15 @@ exports.start = function(options, _onStarted) {
 
   // First, check the file system
   directories.forEach(directory =>
-    app.use(serveStatic(directory, { extensions: ["html"] })));
+    app.use(serveStatic(directory, { extensions: ["html"] }))
+  );
 
   // Then, serve the fallback file
   app.use(serveStaticFile(path.join(directory, file)));
 
   const server = app.listen(port, host, err =>
-    onStarted(err, server.address()));
+    onStarted(err, server.address())
+  );
 
   return server;
 };

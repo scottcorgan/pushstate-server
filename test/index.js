@@ -110,10 +110,12 @@ testWithServer("serves files", (t, done) => {
     ["jpg", "image/jpeg"],
     ["js", "application/javascript"],
     ["json", "application/json"]
-  ].map(data => got(`localhost:9000/cat.${data[0]}`).then(res => {
-    t.equal(res.statusCode, 200, `${data[0]} successful`);
-    t.equal(res.headers["content-type"], data[1], `${data[0]} format`);
-  }));
+  ].map(data =>
+    got(`localhost:9000/cat.${data[0]}`).then(res => {
+      t.equal(res.statusCode, 200, `${data[0]} successful`);
+      t.equal(res.headers["content-type"], data[1], `${data[0]} format`);
+    })
+  );
 
   Promise.all(tests).then(() => done()).catch(done);
 });
@@ -122,9 +124,8 @@ function testWithServer(name, done) {
   test(name, t => {
     let server;
 
-    server = app.start(
-      { directory: path.join(__dirname, "fixtures") },
-      err => done(t, err => server.close(() => t.end(err)))
+    server = app.start({ directory: path.join(__dirname, "fixtures") }, err =>
+      done(t, err => server.close(() => t.end(err)))
     );
   });
 }
