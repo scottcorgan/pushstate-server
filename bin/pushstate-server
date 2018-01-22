@@ -9,8 +9,8 @@ if (argv.h || argv.help) {
 		'',
 		'options:',
 		'  -d           Directory to serve [public]',
-    '  -p           Port to use [9000]',
-    '  -f           Custom file to serve [index.html]',
+		'  -p           Port to use [9000]',
+		'  -f           Custom file to serve [index.html]',
 		'  -h --help    Print this list and exit.'
 		].join('\n'));
 	process.exit();
