@@ -27,6 +27,8 @@
     "compression": "1.7.0",
     "connect": "3.6.2",
     "connect-static-file": "1.2.0",
+    "fs": "0.0.1-security",
+    "https": "1.0.0",
     "minimist": "1.2.0",
     "serve-static": "1.12.3"
   },
