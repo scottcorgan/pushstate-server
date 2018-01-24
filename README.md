@@ -21,6 +21,20 @@ server.start({
 });
 ```
 
+or for https connection
+
+```js
+var server = require('pushstate-server');
+
+server.start({
+  port: 4200,
+  directory: './public',
+  useSSL: true,
+  sslKeyPath: './server.key',
+  sslCertPath: './server.crt'
+});
+```
+
 or for multiple directories
 
 ```js
@@ -50,7 +64,7 @@ npm install -g pushstate-server
 ```
 
 ```
-usage: pushstate-server [-d directory] [-p port] [-f file]
+usage: pushstate-server [-d directory] [-p port] [-f file] [-s -c path/to/server.crt -k path/to/server.key]
 ```
 
 ## API
@@ -69,3 +83,10 @@ usage: pushstate-server [-d directory] [-p port] [-f file]
 * `file`
   * Custom file to serve
   * defaults to `index.html`
+* `useSSL`
+  * Let the server use HTTPS instead of HTTP
+  * defaults to `false`
+* `sslKeyPath`
+  * Path for the SSL private key
+* `sslCertPath`
+  * Path for the SSL certificate
