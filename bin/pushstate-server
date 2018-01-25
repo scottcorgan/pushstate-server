@@ -1,16 +1,25 @@
 #!/usr/bin/env node
 
 const server = require('../index')
+const argv = require('minimist')(process.argv.slice(2))
 
-if (process.argv[2] == '-h' || process.argv[2] == '--help') {
-  console.log('\nusage: pushstate-server [directory] [port] [file]\n')
-  process.exit(0)
+if (argv.h || argv.help) {
+	console.log([
+		'usage: pushstate-server [options]',
+		'',
+		'options:',
+		'  -d           Directory to serve [public]',
+		'  -p           Port to use [9000]',
+		'  -f           Custom file to serve [index.html]',
+		'  -h --help    Print this list and exit.'
+		].join('\n'));
+	process.exit();
 }
 
 server.start({
-  directory: process.argv[2],
-  port: process.argv[3],
-  file: process.argv[4]
+  directory: argv.d,
+  port: argv.p,
+  file: argv.f
 }, (err, address) =>
   console.log(`Listening on port ${address.port} (http://${address.address}:${address.port})`)
 )
