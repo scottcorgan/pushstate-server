@@ -50,7 +50,7 @@ npm install -g pushstate-server
 ```
 
 ```
-usage: pushstate-server [-d directory] [-p port] [-f file]
+usage: pushstate-server [directory] [port] [file]
 ```
 
 ## API
