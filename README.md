@@ -46,7 +46,7 @@ server.start({
 ## CLI usage
 
 ```
-usage: npx pushstate-server [directory] [port] [file]
+npx pushstate-server [directory] [port] [file]
 ```
 
 ## API
