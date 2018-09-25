@@ -43,14 +43,10 @@ server.start({
 ```
 
 
-## Global Install
+## CLI usage
 
 ```
-npm install -g pushstate-server
-```
-
-```
-usage: pushstate-server [directory] [port] [file]
+usage: npx pushstate-server [directory] [port] [file]
 ```
 
 ## API
