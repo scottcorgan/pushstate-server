@@ -24,17 +24,17 @@
     "url": "https://github.com/scottcorgan/pushstate-server/issues"
   },
   "dependencies": {
-    "compression": "1.7.0",
-    "connect": "3.6.2",
-    "connect-static-file": "1.2.0",
+    "compression": "1.7.3",
+    "connect": "3.6.6",
+    "connect-static-file": "2.0.0",
     "minimist": "1.2.0",
-    "serve-static": "1.12.3"
+    "serve-static": "1.13.2"
   },
   "devDependencies": {
     "@tap-format/spec": "0.2.0",
-    "got": "7.1.0",
-    "prettier": "1.5.2",
-    "tape": "4.7.0"
+    "got": "9.2.2",
+    "prettier": "1.14.3",
+    "tape": "4.9.1"
   },
   "bin": {
     "pushstate-server": "./bin/pushstate-server"
