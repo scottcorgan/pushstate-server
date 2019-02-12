@@ -102,7 +102,9 @@ testWithServer("serves index.html", (t, done) => {
     t.equal(res.body, "index.html", "some path response body");
   });
 
-  Promise.all([base, somePath]).then(() => done()).catch(done);
+  Promise.all([base, somePath])
+    .then(() => done())
+    .catch(done);
 });
 
 testWithServer("serves files", (t, done) => {
@@ -117,7 +119,9 @@ testWithServer("serves files", (t, done) => {
     })
   );
 
-  Promise.all(tests).then(() => done()).catch(done);
+  Promise.all(tests)
+    .then(() => done())
+    .catch(done);
 });
 
 function testWithServer(name, done) {

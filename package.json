@@ -1,6 +1,6 @@
 {
   "name": "pushstate-server",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Static file server that works with HTML5 Pushstate.",
   "main": "index.js",
   "scripts": {
