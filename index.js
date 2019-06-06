@@ -15,11 +15,11 @@ const HOST = "0.0.0.0";
 exports.start = function(options, _onStarted) {
   options = options || {};
 
+  let host = options.host || process.env.HOST || HOST;
   let port = options.port || process.env.PORT || PORT;
   let directory = options.directory || DIRECTORY;
   let directories = options.directories || [directory];
   let file = options.file || FILE;
-  let host = options.host || HOST;
   let onStarted = _onStarted || function() {};
 
   app.use(compression());
