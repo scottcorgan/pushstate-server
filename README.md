@@ -50,7 +50,7 @@ npm install -g pushstate-server
 ```
 
 ```
-usage: pushstate-server [-d directory] [-p port] [-f file]
+usage: pushstate-server [-d directory] [-h host] [-p port] [-f file]
 ```
 
 ## API
@@ -60,6 +60,9 @@ usage: pushstate-server [-d directory] [-p port] [-f file]
 
 ##### options
 
+* `host`
+  * set the host that the server should open
+  * uses ` process.env.HOST ` if not specified, and defaults to host ` 0.0.0.0 ` if none is available
 * `port`
   * set the port that the server should open
   * uses ` process.env.PORT ` if not specified, and defaults to port ` 9000 ` if none is available

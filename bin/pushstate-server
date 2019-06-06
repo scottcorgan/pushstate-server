@@ -3,21 +3,23 @@
 const server = require('../index')
 const argv = require('minimist')(process.argv.slice(2))
 
-if (argv.h || argv.help) {
+if (argv.help) {
 	console.log([
 		'usage: pushstate-server [options]',
 		'',
 		'options:',
 		'  -d           Directory to serve [public]',
+    '  -h           Host to use [0.0.0.0].',    
 		'  -p           Port to use [9000]',
 		'  -f           Custom file to serve [index.html]',
-		'  -h --help    Print this list and exit.'
+		'  --help       Print this list and exit.'
 		].join('\n'));
 	process.exit();
 }
 
 server.start({
   directory: argv.d,
+  host: argv.h,
   port: argv.p,
   file: argv.f
 }, (err, address) =>
