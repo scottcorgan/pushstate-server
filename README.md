@@ -42,6 +42,21 @@ server.start({
 });
 ```
 
+or add custom headers
+
+```js
+server.start({
+  port: 4200,
+  host: '192.99.100.01',
+  headers : [
+    {name:'X-Content-Type-Options', value:'nosniff'},
+    {name:'X-XSS-Protection', value:'1; mode=block'},
+    {name:'Strict-Transport-Security', value:'max-age=31536000'},
+    {name:'X-Frame-Options', value:'DENY'},
+  ]  
+  directories: ['./public', './bower_components']
+});
+```
 
 ## Global Install
 

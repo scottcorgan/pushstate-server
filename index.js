@@ -20,7 +20,18 @@ exports.start = function(options, _onStarted) {
   let directories = options.directories || [directory];
   let file = options.file || FILE;
   let host = options.host || HOST;
+  let headers = options.headers || [];
   let onStarted = _onStarted || function() {};
+
+  //Set custm headers (for security, etc...)
+  if (headers.length) {
+    app.use(function(req, res, next) {
+      headers.forEach(function(header) {
+        return res.setHeader(header.name, header.value);
+      });
+      next();
+    });
+  }
 
   app.use(compression());
 
