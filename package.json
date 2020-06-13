@@ -27,7 +27,7 @@
     "compression": "1.7.3",
     "connect": "3.6.6",
     "connect-static-file": "2.0.0",
-    "minimist": "1.2.0",
+    "minimist": "1.2.5",
     "serve-static": "1.13.2"
   },
   "devDependencies": {
