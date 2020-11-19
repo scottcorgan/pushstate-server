@@ -2,6 +2,7 @@
 
 const server = require('../index')
 const argv = require('minimist')(process.argv.slice(2))
+const fs = require('fs')
 
 if (argv.h || argv.help) {
 	console.log([
@@ -11,15 +12,39 @@ if (argv.h || argv.help) {
 		'  -d           Directory to serve [public]',
 		'  -p           Port to use [9000]',
 		'  -f           Custom file to serve [index.html]',
+		'  -s           Serve files trough https',
+		'  -c --cert    Path to SSL certificate',
+		'  -k --key     Path to SSL private key',
 		'  -h --help    Print this list and exit.'
 		].join('\n'));
 	process.exit();
 }
 
+if (argv.s) {
+	if (!argv.c) {
+		console.log('Missing SSL certificate path !')
+		process.exit()
+	} else if(!fs.existsSync(argv.c)) {
+		console.log('Invalid SSL certificate path !')
+		process.exit()
+	}
+
+	if (!argv.k) {
+		console.log('Missing SSL private key path !')
+		process.exit()
+	} else if(!fs.existsSync(argv.k)) {
+		console.log('Invalid SSL key path !')
+		process.exit()
+	}
+}
+
 server.start({
   directory: argv.d,
   port: argv.p,
-  file: argv.f
+	file: argv.f,
+	useSSL: argv.s,
+	sslCertPath: argv.c,
+	sslKeyPath: argv.k
 }, (err, address) =>
-  console.log(`Listening on port ${address.port} (http://${address.address}:${address.port})`)
+  console.log(`Listening on port ${address.port} (${argv.s ? 'https' : 'http'}://${address.address}:${address.port})`)
 )

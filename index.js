@@ -5,6 +5,8 @@ const path = require("path");
 const serveStatic = require("serve-static");
 const serveStaticFile = require("connect-static-file");
 const compression = require("compression");
+const fs = require("fs");
+const https = require("https");
 const app = connect();
 
 const PORT = 9000;
@@ -20,7 +22,15 @@ exports.start = function(options, _onStarted) {
   let directories = options.directories || [directory];
   let file = options.file || FILE;
   let host = options.host || HOST;
+  let useSSL = options.useSSL || false;
   let onStarted = _onStarted || function() {};
+
+  let https_options = useSSL
+    ? {
+        key: fs.readFileSync(options.sslKeyPath),
+        cert: fs.readFileSync(options.sslCertPath)
+      }
+    : null;
 
   app.use(compression());
 
@@ -32,9 +42,17 @@ exports.start = function(options, _onStarted) {
   // Then, serve the fallback file
   app.use(serveStaticFile(path.join(directory, file)));
 
-  const server = app.listen(port, host, err =>
-    onStarted(err, server.address())
-  );
+  if (useSSL) {
+    const server = https
+      .createServer(https_options, app)
+      .listen(port, host, err => onStarted(err, server.address()));
 
-  return server;
+    return server;
+  } else {
+    const server = app.listen(port, host, err =>
+      onStarted(err, server.address())
+    );
+
+    return server;
+  }
 };
